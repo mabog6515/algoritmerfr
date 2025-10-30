@@ -9,11 +9,11 @@ public class Main {
             assist.skrivUt(liste,"\nNy random liste (lengde : "+liste.length+") ");
 
             System.out.println("\n===== SORTERINGS-MENY =====");
-            System.out.println("\t0 - min og max i lista");
+            System.out.println("\t0 - LINE og MAXIM i lista");
             System.out.println("\t1 - Selection Sort");
             System.out.println("\t2 - Bubble Sort");
             System.out.println("\t3 - Insertion Sort");
-            System.out.println("\t4 - Quick Sort [X]");
+            System.out.println("\t4 - Quick Sort");
             System.out.println("\t5 - Merge Sort [X]");
             System.out.println("\t6 - EXIT");
             System.out.print("Velg algoritme: ");
@@ -24,11 +24,28 @@ public class Main {
                 case 1 -> SelectBubbleInsertSort.selectionsort(liste);
                 case 2 -> SelectBubbleInsertSort.bubblesort(liste);
                 case 3 -> SelectBubbleInsertSort.insertionsort(liste);
-                case 4 -> QuicksortOgPartisjonering.quicksort(liste);
+                case 4 -> QuicksortOgPartisjonering.quicksort(liste,0, liste.length-1);
                 case 5 -> System.out.println("mergesort coming soon...");
 
-                case 6 -> {
-                    fortsett = false; System.out.println("BYE BYE :)"); //exit out the loop
+                case 6 -> { //exit out the switch
+                    fortsett = false;
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⠒⠢⢄⡀⠀⠀⢠⡏⠉⠉⠉⠑⠒⠤⣀");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⠀⠀⠀⠀⠀⠙⢦⠀⡇⡇⠀⠀⠀⠀⠀⠀⠈⠱⡀");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠊⠉⠉⠙⠒⢤⡀⠀⣼⠀⠀⢀⣶⣤⠀⠀⠀⢣⡇⡇⠀⠀⢴⣶⣦⠀⠀⠀⢳");
+                    System.out.println("⠀⠀⠀⢀⣠⠤⢄⠀⠀⢰⡇⠀⠀⣠⣀⠀⠀⠈⢦⡿⡀⠀⠈⡟⣟⡇⠀⠀⢸⡇⡆⠀⠀⡼⢻⣠⠀⠀⠀⣸");
+                    System.out.println("⠀⢀⠖⠉⠀⠀⠀⣱⡀⡞⡇⠀⠀⣿⣿⢣⠀⠀⠈⣧⣣⠀⠀⠉⠋⠀⠀⠀⣸⡇⠇⠀⠀⠈⠉⠀⠀⠀⢀⡏");
+                    System.out.println("⣠⠏⠀⠀⣴⢴⣿⣿⠗⢷⡹⡀⠀⠘⠾⠾⠀⠀⠀⣿⣿⣧⡀⠀⠀⠀⢀⣴⠇⣇⣆⣀⢀⣀⣀⣀⣀⣤⠟");
+                    System.out.println("⣿⠀⠀⢸⢻⡞⠋⠀⠀⠀⢿⣷⣄⠀⠀⠀⠀⠀⣠⡇⠙⢿⣽⣷⣶⣶⣿⠋⢰⣿⣿⣿⣿⣿⣿⠿⠛⠁");
+                    System.out.println("⡿⡄⠀⠈⢻⣝⣶⣶⠀⠀⠀⣿⣿⣱⣶⣶⣶⣾⡟⠀⠀⠀⢈⡉⠉⢩⡖⠒⠈⠉⡏⡴⡏⠉⠉⠉⠉⠉⠉⠉⠉⡇⠀⠀⢀⣴⠒⠢⠤⣀");
+                    System.out.println("⢣⣸⣆⡀⠀⠈⠉⠁⠀⠀⣠⣷⠈⠙⠛⠛⠛⠉⢀⣴⡊⠉⠁⠈⢢⣿⠀⠀⠀⢸⠡⠀⠁⠀⠀⠀⣠⣀⣀⣀⣀⡇⠀⢰⢁⡇⠀⠀⠀⢠");
+                    System.out.println("⠀⠻⣿⣟⢦⣤⡤⣤⣴⣾⡿⢃⡠⠔⠒⠉⠛⠢⣾⢿⣿⣦⡀⠀⠀⠉⠀⠀⢀⡇⢸⠀⠀⠀⠀⠀⠿⠿⠿⣿⡟⠀⢀⠇⢸⠀⠀⠀⠀⠘");
+                    System.out.println("⠀⠀⠈⠙⠛⠿⠿⠿⠛⠋⢰⡋⠀⠀⢠⣤⡄⠀⠈⡆⠙⢿⣿⣦⣀⠀⠀⠀⣜⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⢀⠃⠀⡸⠀⠇");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⡇⢣⠀⠀⠈⠛⠁⠀⢴⠥⡀⠀⠙⢿⡿⡆⠀⠀⢸⠀⢸⢰⠀⠀⠀⢀⣿⣶⣶⡾⠀⢀⠇⣸");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠹⡀⢇⠀⠀⠀⢀⡀⠀⠀⠈⢢⠀⠀⢃⢱⠀⠀⠀⡇⢸⢸⠀⠀⠀⠈⠉⠉⠉⢱⠀⠼⣾⣿⣿⣷⣦⠴");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⢱⠘⡄⠀⠀⢹⣿⡇⠀⠀⠈⡆⠀⢸⠈⡇⢀⣀⣵⢨⣸⣦⣤⣤⣄⣀⣀⣀⡞⠀⣠⡞⠉⠈⠉⢣⡀");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⢃⠘⡄⠀⠀⠉⠀⠀⣠⣾⠁⠀⠀⣧⣿⣿⡿⠃⠸⠿⣿⣿⣿⣿⣿⣿⠟⠁⣼⣾⠀⠀⠀⠀⢠⠇");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠘⡄⠹⣀⣀⣤⣶⣿⡿⠃⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠀⢻⣿⣷⣦⣤⣤⠎⠀");
+                    System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠘⣤⣿⡿⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉");
                 }
                 default -> System.out.println("ugyldig alternativ");
             }
