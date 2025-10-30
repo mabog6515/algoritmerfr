@@ -28,8 +28,8 @@ public class assist {
         tabell[j] = tmp;
     }
     public static boolean sortert(int[] tabell){
-        for (int i : tabell){
-            if (i > i+1) return false;
+        for (int i = 0; i < tabell.length - 1; i++) {
+            if (tabell[i] > tabell[i + 1]) return false;
         }
         return true;
     }
