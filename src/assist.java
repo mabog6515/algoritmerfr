@@ -1,3 +1,4 @@
+import javax.lang.model.type.NullType;
 import java.util.Random;
 
 public class assist {
@@ -14,10 +15,10 @@ public class assist {
     }
     // gjør om til at den senere kan bruke alt og ikke bare int, med <T> when you can,
     // senere med den over også
-    public static void skrivUt(int[] tabell, String kommentar){
+    public static void skrivUt(int[] liste, String kommentar){
         System.out.print(kommentar + ":\n\t| ");
-        for (int i : tabell){
-            System.out.print(i+" | ");
+        for (int i=0; i< liste.length;i++){
+            System.out.print(liste[i]+" | ");
         }
         System.out.println();
     }

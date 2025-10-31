@@ -3,9 +3,10 @@ import java.util.NoSuchElementException;
 public class MergeSort {
     public static int[] MergeSortedLists(int[] a, int[] b){
         if(!assist.sortert(a) || !assist.sortert(b)) throw new NoSuchElementException("a eller b er ikke sortert og kan ikke flettes");
-        int[] resultat = new int[a.length+ b.length];
 
+        int[] resultat = new int[a.length+ b.length];
         int i=0, j=0, k=0; //vi jobber med 3 lister, så 3 forskjellige indekser
+
         while(i<a.length && j<b.length){
             if (a[i]< b[j]){
                 resultat[k++] = a[i++];
@@ -36,5 +37,32 @@ public class MergeSort {
         førsteHalv = MergeSort(førsteHalv);
         andreHalv = MergeSort(andreHalv);
         return MergeSortedLists(førsteHalv,andreHalv);
+    }
+    public static int[] rotate(int[] a,int d){
+        if (d > a.length-1) throw new NoSuchElementException("listen er ikke så lang");
+        if (d==0) return a;
+
+        //flip
+        int v = 0;
+        int h = a.length-1;
+        flip(a,v,h);
+
+        //flip venstre side (d)
+        v=0;
+        h=d-1;
+        flip(a,v,h);
+
+        //flipp resten
+        v=d;
+        h=a.length-1;
+        flip(a,v,h);
+        return a;
+    }
+    public static int[] flip(int[] a,int v, int h){
+        while (v < h){
+            assist.bytt(a,v,h); //bytter verdi på indeksene
+            v++; h--;
+        }
+        return a;
     }
 }

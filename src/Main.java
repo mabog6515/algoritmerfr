@@ -9,13 +9,14 @@ public class Main {
             assist.skrivUt(liste,"\nNy random liste (lengde : "+liste.length+") ");
 
             System.out.println("\n===== SORTERINGS-MENY =====");
-            System.out.println("\t0 - LINE og MAXIM i lista");
+            System.out.println("\t0 - min og max i lista                ❖ O(n)");
             System.out.println("\t1 - Selection Sort    ⌜in-place⌟      ❖ avg: O(n^2)");
             System.out.println("\t2 - Bubble Sort       ⌜in-place⌟      ❖ avg: O(n^2)");
             System.out.println("\t3 - Insertion Sort    ⌜in-place⌟      ❖ avg: O(n^2)");
             System.out.println("\t4 - Quick Sort        ⌜in-place⌟      ❖ avg: O(nlogn)");
-            System.out.println("\t5 - Merge Sort        ⌞out-place⌝     ❖ avg: O(nlogn)");
-            System.out.println("\t6 - EXIT");
+            System.out.println("\t5 - Merge Sort        ⌞out-of-place⌝  ❖ avg: O(nlogn)");
+            System.out.println("\t6 - Rotate                            ❖ O(n)");
+            System.out.println("\t9 - EXIT");
             System.out.print("Velg algoritme: ");
 
             int valg = scanner.nextInt();
@@ -26,8 +27,9 @@ public class Main {
                 case 3 -> SelectBubbleInsertSort.insertionsort(liste);
                 case 4 -> QuicksortOgPartisjonering.quicksort(liste,0, liste.length-1);
                 case 5 -> liste = MergeSort.MergeSort(liste);
+                case 6 -> MergeSort.rotate(liste,scanner.nextInt());
                 //exit out the loop
-                case 6 -> {
+                case 9 -> {
                     fortsett = false;
                     System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⠒⠢⢄⡀⠀⠀⢠⡏⠉⠉⠉⠑⠒⠤⣀");
                     System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⠀⠀⠀⠀⠀⠙⢦⠀⡇⡇⠀⠀⠀⠀⠀⠀⠈⠱⡀");
@@ -49,15 +51,18 @@ public class Main {
                 }
                 default -> System.out.println("ugyldig alternativ"); //add gul trekant sign ASII?
             }
-            if (valg==1 || valg==2 || valg==3 || valg==4 || valg==5){
+            if (valg==1 || valg==2 || valg==3 || valg==4 || valg==5 || valg==6){ //alt utenom EXIT + default
                 assist.skrivUt(liste,"\nResultat");
             }
-            if (assist.sortert(liste)) System.out.println("⌜liste sortert riktig!⌟");
-            else System.out.println("⌜liste sortert feil!⌟");
-
-            System.out.println("Trykk ENTER for å fortsette...");
-            scanner.nextLine(); // venter på enter før den kjører while på nytt
-            scanner.nextLine(); // to stk så det ikke kan skippes
+            if(valg==1 || valg==2 || valg==3 || valg==4 || valg==5) { //algoritme valgene
+                if (assist.sortert(liste)) System.out.println("⌜liste sortert riktig!⌟");
+                else System.out.println("⌜liste sortert feil!⌟");
+            }
+            if (valg!=9) {
+                System.out.println("Trykk ENTER for å fortsette...");
+                scanner.nextLine(); // venter på enter før den kjører while på nytt
+                scanner.nextLine(); // to stk så det ikke kan skippes
+            }
         }
     }
 }
